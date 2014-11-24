@@ -18,13 +18,17 @@ var possibleChoices = ['rock', 'paper', 'scissors'],
         scissors: { rock: LOOSE, paper: WIN, scissors: DRAW }
     };
 
+function getRandom() {
+    return possibleChoices[Math.floor(Math.random() * possibleChoices.length)];
+}
+
 rl.question('\nRock ? Paper ? Scissors ?\n\nYour choice     : ', function (answer) {
 
     answer = answer.toLowerCase();
     var idx = possibleChoices.indexOf(answer);
 
     if (idx !== -1) {
-        var computerAnswer = possibleChoices[Math.floor(Math.random() * possibleChoices.length)];
+        var computerAnswer = getRandom();
 
         console.log('Computer choice : ' + computerAnswer + '\n');
 
