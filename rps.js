@@ -11,18 +11,20 @@ var LOOSE = { msg: 'You loose :-(', color: 'red' },
     WIN = { msg: 'You win ;-)', color: 'green' },
     DRAW = { msg: 'No winner :-|, try again...', color: 'grey' };
 
-var possibleChoices = ['rock', 'paper', 'scissors'],
+var possibleChoices = ['rock', 'paper', 'scissors', 'lizard', 'spock'],
     winTable = {
-        rock: { rock: DRAW, paper: LOOSE, scissors: WIN },
-        paper: { rock: WIN, paper: DRAW, scissors: LOOSE },
-        scissors: { rock: LOOSE, paper: WIN, scissors: DRAW }
+        rock: { rock: DRAW, paper: LOOSE, scissors: WIN, lizard: WIN, spock: LOOSE },
+        paper: { rock: WIN, paper: DRAW, scissors: LOOSE, lizard: LOOSE, spock: WIN },
+        scissors: { rock: LOOSE, paper: WIN, scissors: DRAW, lizard: WIN, spock: LOOSE },
+        lizard: { rock: LOOSE, paper: WIN, scissors: LOOSE, lizard: DRAW, spock: WIN },
+        spock: { rock: WIN, paper: LOOSE, scissors: WIN, lizard: LOOSE, spock: DRAW }
     };
 
 function getRandomComputerAnswer() {
     return possibleChoices[Math.floor(Math.random() * possibleChoices.length)];
 }
 
-rl.question('\nRock ? Paper ? Scissors ?\n\nYour choice     : ', function (answer) {
+rl.question('\nRock ? Paper ? Scissors ? Lizard ? Spock ?\n\nYour choice     : ', function (answer) {
 
     answer = answer.toLowerCase();
     var idx = possibleChoices.indexOf(answer);
