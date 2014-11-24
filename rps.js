@@ -1,13 +1,15 @@
 'use strict';
 
+var colors = require('colors');
+
 var rl = require('readline').createInterface({
     input: process.stdin,
     output: process.stdout
 });
 
-var LOOSE = 'You loose :-(',
-    WIN = 'You win ;-)',
-    DRAW = 'No winner :-|, try again...';
+var LOOSE = { msg: 'You loose :-(', color: 'red' },
+    WIN = { msg: 'You win ;-)', color: 'green' },
+    DRAW = { msg: 'No winner :-|, try again...', color: 'grey' };
 
 var possibleChoices = ['rock', 'paper', 'scissors'],
     winTable = {
@@ -25,7 +27,9 @@ rl.question('\nRock ? Paper ? Scissors ?\n\nYour choice     : ', function (answe
         var computerAnswer = possibleChoices[Math.floor(Math.random() * possibleChoices.length)];
 
         console.log('Computer choice : ' + computerAnswer + '\n');
-        console.log(winTable[answer][computerAnswer] + '\n');
+
+        var result = winTable[answer][computerAnswer];
+        console.log(colors[result.color](result.msg + '\n'));
     } else {
         console.error('\nIncorrect choice !');
     }
