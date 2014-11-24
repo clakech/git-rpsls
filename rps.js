@@ -20,7 +20,7 @@ var possibleChoices = ['rock', 'paper', 'scissors', 'lizard', 'spock'],
         spock: { rock: WIN, paper: LOOSE, scissors: WIN, lizard: DRAW, spock: WIN }
     };
 
-function getRandom() {
+function getRandomComputerAnswer() {
     return possibleChoices[Math.floor(Math.random() * possibleChoices.length)];
 }
 
@@ -30,7 +30,7 @@ rl.question('\nRock ? Paper ? Scissors ? Lizard ? Spock ?\n\nYour choice     : '
     var idx = possibleChoices.indexOf(answer);
 
     if (idx !== -1) {
-        var computerAnswer = getRandom();
+        var computerAnswer = getRandomComputerAnswer();
 
         console.log('Computer choice : ' + computerAnswer + '\n');
 
