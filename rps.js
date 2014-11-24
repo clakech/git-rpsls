@@ -11,8 +11,8 @@ var LOOSE = 'You loose :-(',
 
 var possibleChoices = ['rock', 'paper', 'scissors'],
     winTable = {
-        rock: { rock: DRAW, paper: WIN, scissors: WIN },
-        paper: { rock: LOOSE, paper: DRAW, scissors: LOOSE },
+        rock: { rock: DRAW, paper: LOOSE, scissors: WIN },
+        paper: { rock: WIN, paper: DRAW, scissors: LOOSE },
         scissors: { rock: LOOSE, paper: WIN, scissors: DRAW }
     };
 
